@@ -2,7 +2,8 @@ require("config.lazy")
 require("mini.pairs").setup()
 require("mason").setup()
 require("mason-lspconfig").setup()
-require("lspconfig").rust_analyzer.setup {}
+require("dapui").setup()
+-- require("lspconfig").rust_analyzer.setup {}
 require("lspconfig").lua_ls.setup {}
 
 -- vim.wo.number = true

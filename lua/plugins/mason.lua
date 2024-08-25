@@ -12,8 +12,9 @@ return {
 		end,
 	},
 	{
-		'rcarriga/nvim-dap-ui',
-		'nvim-neotest/nvim-nio',
+		"rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
+	},
+	{
 		'hrsh7th/cmp-nvim-lsp',
 		'hrsh7th/nvim-cmp',
 		'hrsh7th/cmp-path',
