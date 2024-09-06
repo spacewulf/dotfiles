@@ -32,3 +32,17 @@ vim.cmd([[
 	let g:airline_theme = 'catppuccin'
 ]])
 
+vim.opt.mouse = 'a'
+
+vim.opt.showmode = false
+
+vim.schedule(function()
+	vim.opt.clipboard = 'unnamedplus'
+end)
+
+vim.opt.breakindent = true
+
+vim.opt.undofile = true
+
+vim.opt.ignorecase = true
+vim.opt.smartcase = true

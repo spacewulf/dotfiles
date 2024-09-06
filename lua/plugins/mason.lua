@@ -15,8 +15,18 @@ return {
 		"rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
 	},
 	{
-		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-nvim-lsp'
+	},
+	{
 		'hrsh7th/nvim-cmp',
+		opts = {
+			performance = {
+				debounce = 0,
+				throttle = 0,
+			},
+		},
+	},
+	{
 		'hrsh7th/cmp-path',
 		'hrsh7th/cmp-buffer',
 		'hrsh7th/cmp-cmdline',
