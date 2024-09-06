@@ -1,10 +1,22 @@
 require("config.lazy")
 require("mini.pairs").setup()
-require("mason").setup()
-require("mason-lspconfig").setup()
+require("mason").setup({
+	PATH = "prepend",
+})
+require("mason-lspconfig").setup({
+	ensure_installed = { "lua_ls", "pylyzer", "bashls", "jsonls" }
+})
+
+require("mason-lspconfig").setup_handlers {
+	function (server_name)
+		require("lspconfig")[server_name].setup {}
+	end,
+
+}
+
 require("dapui").setup()
--- require("lspconfig").rust_analyzer.setup {}
-require("lspconfig").lua_ls.setup {}
+-- require("lspconfig").lua_ls.setup {}
+-- require("lspconfig").pylyzer.setup {}
 
 -- vim.wo.number = true
 -- vim.wo.relativenumber = true

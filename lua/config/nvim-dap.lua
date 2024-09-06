@@ -12,7 +12,7 @@ dap.adapters.codelldb = {
 	type = 'server',
 	port = "${port}",
 	executable = {
-		command = 'C:/Users/Kees Wolterstorff/codelldb/extension/adapter/codelldb',
+		command = 'C:/Users/Kees Wolterstorff/AppData/Local/nvim-data/mason/packages/codelldb/extension/adapter/codelldb',
 		args = {"--port", "${port}"},
 		detached = false
 	}

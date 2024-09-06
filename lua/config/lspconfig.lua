@@ -62,4 +62,3 @@ cmp.setup {
   },
 }
 
-require'lspconfig'.pylyzer.setup{}
