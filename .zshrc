@@ -110,6 +110,10 @@ alias l='ls -CF'
 #When = PostTransaction
 #Exec = /usr/bin/install -Dm644 /dev/null /var/cache/zsh/pacman
 
+# Add various directories to Path
+
+export PATH=$PATH:/home/$USER/.local/bin:/etc/profile
+
 # Initialize starship and zoxide
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
