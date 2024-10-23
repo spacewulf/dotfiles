@@ -79,6 +79,7 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias sudo='sudo '
 
 # If on Arch, and you want to hook zsh into pacman to auto-rehash upon package changes, uncomment the following lines, and add the next block of lines to /etc/pacman.d/hooks/zsh.hook
 #
@@ -123,3 +124,11 @@ alias vi=nvim
 alias vim=nvim   
 alias cd=z 
 alias stl=systemctl
+
+function mkcd() {
+  mkdir $1 && cd $1
+}
+
+function cdls() {
+  cd $1 && ls
+}
