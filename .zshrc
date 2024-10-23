@@ -120,6 +120,7 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 
 # User aliases
+alias v=nvim
 alias vi=nvim
 alias vim=nvim   
 alias cd=z 
