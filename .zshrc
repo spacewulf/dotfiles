@@ -1,10 +1,16 @@
 HISTFILE=~/.histfile #Autocompletion history setup
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=5000
+SAVEHIST=5000
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_verify
+
 bindkey -v
 
 zstyle :compinstall filename '/home/$USER/.zshrc' #Edit to change user directory
 zstyle ':completion::complete:*' gain-privileges 1 #Allow autocompletion in privileged environmetns
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
 autoload -Uz compinit
 compinit
@@ -124,7 +130,9 @@ alias v=nvim
 alias vi=nvim
 alias vim=nvim   
 alias cd=z 
+alias ls='eza --icons=always'
 alias stl=systemctl
+alias ..='cd ..'
 
 function mkcd() {
   mkdir $1 && cd $1
@@ -133,3 +141,6 @@ function mkcd() {
 function cdls() {
   cd $1 && ls
 }
+
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
