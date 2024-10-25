@@ -87,11 +87,14 @@ alias la='ls -A'
 alias l='ls -CF'
 alias sudo='sudo '
 
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+
 # If on Arch, and you want to hook zsh into pacman to auto-rehash upon package changes, uncomment the following lines, and add the next block of lines to /etc/pacman.d/hooks/zsh.hook
-#
+
 #zshcache_time="$(date +%s%N)"
 #autoload -Uz add-zsh-hook
-#
+
 #rehash_precmd() {
 #	if [[ -a /var/cache/zsh/pacman ]]; then
 #		local paccache_time="$(date -r /var/cache/zsh/pacman +%s%N)"
@@ -101,21 +104,8 @@ alias sudo='sudo '
 #		fi
 #	fi
 #}
-#
-#add-zsh-hook -Uz precmd rehash_precmd
 
-# Create the file /etc/pacman.d/hooks/zsh.hook and add the following
-#
-#[Trigger]
-#Operation = Install
-#Operation = Upgrade
-#Operation = Remove
-#Type = Path
-#Target = usr/bin/*
-#[Action]
-#Depends = zsh
-#When = PostTransaction
-#Exec = /usr/bin/install -Dm644 /dev/null /var/cache/zsh/pacman
+#add-zsh-hook -Uz precmd rehash_precmd
 
 # Add various directories to Path
 
@@ -141,6 +131,3 @@ function mkcd() {
 function cdls() {
   cd $1 && ls
 }
-
-bindkey '^[[A' history-search-backward
-bindkey '^[[B' history-search-forward
