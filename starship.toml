@@ -2,7 +2,7 @@
 
 add_newline = false
 command_timeout = 1000
-format = """$os$username$hostname$kubernetes$directory$git_branch$git_status"""
+format = """$os$username$hostname$kubernetes$rust$python${custom.arduino}$directory$git_branch$git_status"""
 
 # Drop ugly default prompt characters
 [character]
@@ -16,19 +16,32 @@ format = '[$symbol](bold white) '
 disabled = false
 
 [os.symbols]
-Windows = ' '
-Arch = '󰣇'
+Windows = "󰍲"
 Ubuntu = ''
-Macos = '󰀵'
-Fedora = ''
+SUSE = ""
+Raspbian = "󰐿"
+Mint = " 󰣭 "
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+CentOS = ""
 Debian = ''
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
 
 # ---y
 
 # Shows the username
 [username]
 style_user = 'white bold'
-style_root = 'black bold'
+style_root = '#7b7c7e'
 format = '[$user]($style) '
 disabled = false
 show_always = true
@@ -47,6 +60,13 @@ home_symbol = '󰋜 ~'
 read_only_style = '197'
 read_only = '  '
 format = 'at [$path]($style)[$read_only]($read_only_style) '
+
+[directory.substitutions]
+"Documents" = "Documents 󰈙 "
+"Downloads" = "Downloads  "
+"Music" = "Music  "
+"Pictures" = "Pictures  "
+"src" = "src  "
 
 # Shows current git branch
 [git_branch]
@@ -79,6 +99,21 @@ disabled = false
 
 # ---
 
+[rust]
+symbol = " "
+style = '#78a9ff'
+format = 'via [$symbol($version )](bold red)'
+
+[python]
+symbol = ""
+format = 'via [${symbol}${pyenv_prefix} (${version} )(\($virtualenv\) )](yellow bold)'
+
+[custom.arduino]
+command = 'echo ${$(ls | grep .ino)%.*}'
+symbol = " "
+format = 'via [$symbol($output )](bold cyan)'
+detect_extensions = ['ino']
+
 [vagrant]
 disabled = true
 
@@ -86,9 +121,6 @@ disabled = true
 disabled = true
 
 [helm]
-disabled = true
-
-[python]
 disabled = true
 
 [nodejs]
