@@ -1,4 +1,4 @@
-#j/usr/bin/env bash
+#!/usr/bin/env bash
 
 temp_directory=$(dirname "$0")
 directory=${temp_directory::-1}
